@@ -30,5 +30,21 @@ class ZebraController < ApplicationController
     else
       @outcome = "won"
     end
+    render({ :template => "game_templates/paper_page" })
+  end
+
+  def scissors_page
+    moves = ["rock", "paper", "scissors"]
+
+    @comp_move = moves.sample
+
+    if @comp_move == "scissors"
+      @outcome = "tied"
+    elsif @comp_move == "rock"
+      @outcome = "lost"
+    else
+      @outcome = "won"
+    end
+    render({ :template => "game_templates/scissors_page" })
   end
 end
